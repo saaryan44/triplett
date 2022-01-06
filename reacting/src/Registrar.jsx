@@ -1,0 +1,5 @@
+import { useHistory } from 'react-router-dom';
+import {useState} from 'react';
+
+const Registrar=()=>{const histamine=useHistory();const [pe,P]=useState({name:"",email:"",password:""}); return(<div>This is the registrar <br /><form onSubmit={f=>{f.preventDefault();fetch('/register',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:pe.name,email:pe.email,password: pe.password})}).then(d=>d.json()).then(d=>{if(!d.ok){alert(d.message);}else{histamine.push('/login');}});}}><input type="text" placeholder="Name, minimum 4 characters" name="name" value={ pe.name} onChange={fx=>{P({...pe,name:fx.target.value});}}  required={true} /> <input type="email" required={true} placeholder="email address" name="email" value={pe.email} onChange={fx=>{P({...pe,email:fx.target.value});}}/><input type="password" required={true} placeholder="password" name="password" onChange={fx=>{P({...pe,password:fx.target.value});}} value={pe.password}/> <input type="submit" /></form></div>);};
+export default Registrar;
