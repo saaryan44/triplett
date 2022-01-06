@@ -1,0 +1,3 @@
+Issues with mongodb access on the deployed app. Works fine in production.
+Config vars and string problem. The ip address access problem.
+https://triplett.herokuapp.com/
